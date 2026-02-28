@@ -1,5 +1,6 @@
 package book.library.api.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,6 +34,7 @@ public class Author {
     private LocalDate birthDate;
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
+    @JsonIgnore
     @Builder.Default
     private List<Book> books = new ArrayList<>();
 }

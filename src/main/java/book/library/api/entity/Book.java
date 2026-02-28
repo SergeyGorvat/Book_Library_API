@@ -1,5 +1,6 @@
 package book.library.api.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,7 +30,7 @@ public class Book {
 
     private String description;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "author_id", nullable = false)
     private Author author;
 }
